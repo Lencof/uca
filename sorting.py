@@ -5,8 +5,10 @@ class Sort:
 
     def __init__(self, count):
         self.count = count
+        print('\r')
 
-    def lstgen(self, count):
+    def generate_random_list(self, count):
+        """ Создание случайного списка натуральных неповторяющихся чисел, принадлежащих [1; count] """
         randlist = []
         while len(randlist) < count:
             r = random.randrange(1, count + 1)
@@ -15,8 +17,12 @@ class Sort:
         return randlist
 
     def pusirki(self):
-        print('-' * self.count, 'Пузырьковая сортировка', '-' * self.count)
-        rnd_list = self.lstgen(self.count)
+        """ Пузырьковая сортировка """
+        print('-' * self.count, self.pusirki.__doc__, '-' * self.count,)
+        rnd_list = self.generate_random_list(self.count)
+        print(rnd_list)  # исходный список
+
+        # Алгоритм
         cyc = 1
         while cyc == 1:
             cyc = 0
@@ -27,8 +33,12 @@ class Sort:
                     print(rnd_list)
 
     def vibor(self):
-        print('-' * self.count, 'Сортировка выбором', '-' * self.count)
-        rnd_list = self.lstgen(self.count)
+        """ Сортировка выбором """
+        print('-' * self.count, self.pusirki.__doc__, '-' * self.count,)
+        rnd_list = self.generate_random_list(self.count)
+        print(rnd_list)  # исходный список
+
+        # Алгоритм
         i = 0
         while i < len(rnd_list) - 1:
             min_num = min(rnd_list[i:])
@@ -40,9 +50,24 @@ class Sort:
             i += 1
             print(rnd_list)
 
+    def vstavki(self):
+        """ Сортировка вставками """
+        print('-' * self.count, self.pusirki.__doc__, '-' * self.count,)
+        rnd_list = self.generate_random_list(self.count)
+        print(rnd_list)  # исходный список
 
-a = Sort(30).pusirki()
-b = Sort(30).vibor()
+        # Алгоритм
+        ind = 1
+        while ind < len(rnd_list):
+            for i in range(0, len(rnd_list[:ind])):
+                if rnd_list[ind-i] < rnd_list[ind-i-1]:
+                    rnd_list[ind-i], rnd_list[ind-i-1] = rnd_list[ind-i-1], rnd_list[ind-i]
+                    print(rnd_list)
+                else:
+                    break
+            ind += 1
+
+
 
 
 
