@@ -4,9 +4,15 @@
 2) 3 варианта сортировки списка
 """
 
+# sorting.py
+
+import os
+import sys
+import os.path
 import random
 
 
+# create class Sort:
 class Sort:
 
     def __init__(self, count):
