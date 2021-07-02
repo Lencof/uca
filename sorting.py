@@ -4,9 +4,11 @@
 2) 3 варианта сортировки списка
 """
 
+import os
+import sys
 import random
 
-
+# create class Sort:
 class Sort:
 
     def __init__(self, count):
